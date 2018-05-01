@@ -1,24 +1,26 @@
+
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
-//	public static void main(String args[]) {
-//		ArrayList<String> topic = new ArrayList<String>();
-//		topic.add("Iowa State");
-//		topic.add("Cyclone");
-//
-//		WikiCrawler crawler = new WikiCrawler("/wiki/Iowa State University",1000, topic,"wikiCC.txt");
-//		crawler.crawl();
-//		
-//		GraphUntility.findDistance(GraphUntility.DataToGraph("graphData"));
-//		NetworkInfluence n = new NetworkInfluence("wikiCC.txt");
-//		
-//		List<String> temp = n.mostInfluentialDegree(100);
-//		for(String s: temp) {
-//			System.out.println(s);
-//		}
-//	}
 	public static void main(String[] args) {
-	    //Code
+
+
+		
+		 ArrayList<String> vertices = new ArrayList<String>();
+	        vertices.add("A");
+	        vertices.add("C");
+	        NetworkInfluence n = new NetworkInfluence("bin/inf_graphs/mostInfSubMod0");
+	        ArrayList<String> temp = n.mostInfluentialSubModular(vertices.size());
+	        System.out.println(setEquality(temp, vertices));
+	        for(String str : temp) {
+	        	System.out.println(str);
+	        }
 	}
+	static boolean setEquality(ArrayList<String> a, ArrayList<String> b) {
+        return a.containsAll(b) && b.containsAll(a);
+    }
 }
